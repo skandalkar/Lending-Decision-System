@@ -1651,42 +1651,7 @@ The Lending Decision System provides an end-to-end workflow for MSME loan evalua
 
 The architecture consists of:
 
-```text
-React + Vite
-      │
-      ▼
-Node.js + Express
-      │
-      ├──────────────► PostgreSQL
-      │                 │
-      │                 ├── Applications
-      │                 ├── Decisions
-      │                 └── Decision Jobs
-      │
-      └──────────────► MongoDB
-                        │
-                        └── Audit Events
-
-PostgreSQL Jobs
-      │
-      ▼
-Decision Worker
-      │
-      ▼
-Decision Engine
-      │
-      ├── Score
-      ├── Credit Strength
-      ├── Affordability
-      ├── Business Stability
-      └── Reason Codes
-      │
-      ▼
-2-out-of-3 Decision
-      │
-      ├── APPROVED
-      └── REJECTED
-``` 
+![alt text](assets/Architecture.png)
 
 The key design decision is to keep the **decision engine deterministic, explainable, independently testable, and separated from the API layer**, while using PostgreSQL for transactional state and MongoDB for timestamped audit events.
 
