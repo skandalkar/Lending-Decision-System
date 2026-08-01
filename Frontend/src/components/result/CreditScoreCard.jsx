@@ -1,3 +1,10 @@
+/* This function converts a credit score into a simple risk-quality label:
+    750 or above → Excellent
+    650-749 → Good
+    550-649 → Fair
+    Below 550 → Low
+ */
+
 function getScoreLabel(score) {
     if (score >= 750) {
         return "Excellent";

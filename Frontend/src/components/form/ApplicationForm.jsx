@@ -4,7 +4,7 @@ import LoanApplicationSection from "./LoanApplicationSection";
 import Button from "../common/Button";
 import { normalizeApplication, validateApplication } from "../../utils/validation";
 
-export const INITIAL_FORM = {
+const INITIAL_FORM = {
     ownerName: "",
     businessName: "",
     pan: "",
@@ -32,7 +32,6 @@ function ApplicationForm({ onDecision, onError }) {
             [name]: name === "pan" ? value.toUpperCase() : value,
         }));
 
-        // Remove the error as soon as the user starts correcting the field.
         setErrors((current) => {
             if (!current[name]) {
                 return current;
@@ -60,32 +59,22 @@ function ApplicationForm({ onDecision, onError }) {
 
     async function handleSubmit(event) {
         event.preventDefault();
-
         onError("");
-
         const validationErrors = validateApplication(form);
-
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length > 0) {
             const firstErrorField = Object.keys(validationErrors)[0];
-
             document.getElementById(firstErrorField)?.focus();
-
             return;
         }
 
         try {
             setSubmitting(true);
-
             const payload = normalizeApplication(form);
-
             await onDecision(payload);
         } catch (error) {
-            onError(
-                error?.message ||
-                "Unable to evaluate the application. Please try again."
-            );
+            onError(error?.message || "Unable to evaluate the application. Please try again.");
         } finally {
             setSubmitting(false);
         }

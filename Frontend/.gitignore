@@ -28,6 +28,3 @@ node_modules/
 
 # Environment variables
 .env
-
-#Markdown files
-*.md    

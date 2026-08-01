@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ApplicationForm from "../components/form/ApplicationForm";
 import DecisionResult from "../components/result/DecisionCard";
-import { evaluateLoanApplication } from "../services/lendingApi";
+import ApplicationForm from "../components/form/ApplicationForm";
+import { evaluateLoanApplication } from "../services/LendingAPI";
 
 function LendingDecisionPage() {
     const [decision, setDecision] = useState(null);
@@ -9,9 +9,7 @@ function LendingDecisionPage() {
 
     async function handleDecision(application) {
         setApiError("");
-
         const result = await evaluateLoanApplication(application);
-
         setDecision(result);
     }
 

@@ -25,13 +25,7 @@ const COLLATERAL_OPTIONS = [
   { value: "NO", label: "No" },
 ];
 
-function LoanApplicationSection({
-  form,
-  errors,
-  onChange,
-  onBlur,
-  disabled,
-}) {
+function LoanApplicationSection({ form, errors, onChange, onBlur, disabled, }) {
   return (
     <SectionCard
       title="Loan Application"

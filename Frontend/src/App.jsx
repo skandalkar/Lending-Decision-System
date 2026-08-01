@@ -3,7 +3,6 @@ import LendingDecisionPage from "./pages/LendingDecisionPage";
 import { useEffect } from 'react';
 
 function App() {
-
   useEffect(() =>{
     document.title = "Lending Decision System";
   }, []);
