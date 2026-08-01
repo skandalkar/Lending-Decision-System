@@ -91,40 +91,22 @@ export function validateApplication(form) {
   }
 
   // Monthly and annual revenue consistency
-  if (
-    Number.isFinite(monthlyRevenue) &&
-    Number.isFinite(annualRevenue) &&
-    monthlyRevenue >= 0 &&
-    annualRevenue >= 0
-  ) {
+  if (Number.isFinite(monthlyRevenue) && Number.isFinite(annualRevenue) && monthlyRevenue >= 0 && annualRevenue >= 0) {
     const expectedMinimumAnnualRevenue = monthlyRevenue * 12;
 
     if (annualRevenue < expectedMinimumAnnualRevenue) {
-      errors.annualRevenue =
-        "Annual revenue cannot be lower than 12 × monthly revenue.";
+      errors.annualRevenue = "Annual revenue cannot be lower than 12 × monthly revenue.";
     }
   }
 
   // Debt consistency
-  if (
-    Number.isFinite(existingDebt) &&
-    Number.isFinite(annualRevenue) &&
-    existingDebt > annualRevenue &&
-    annualRevenue > 0
-  ) {
-    errors.existingDebt =
-      "Outstanding debt is unusually high compared with annual revenue.";
+  if (Number.isFinite(existingDebt) && Number.isFinite(annualRevenue) && existingDebt > annualRevenue && annualRevenue > 0) {
+    errors.existingDebt = "Outstanding debt is unusually high compared with annual revenue.";
   }
 
   // Requested loan amount vs annual revenue
-  if (
-    Number.isFinite(requestedLoanAmount) &&
-    Number.isFinite(annualRevenue) &&
-    annualRevenue > 0 &&
-    requestedLoanAmount > annualRevenue * 5
-  ) {
-    errors.requestedLoanAmount =
-      "Requested loan is unusually high compared with annual revenue.";
+  if (Number.isFinite(requestedLoanAmount) && Number.isFinite(annualRevenue) && annualRevenue > 0 && requestedLoanAmount > annualRevenue * 5) {
+    errors.requestedLoanAmount = "Requested loan is unusually high compared with annual revenue.";
   }
 
   return errors;

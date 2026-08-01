@@ -10,18 +10,12 @@ const BUSINESS_TYPES = [
   { value: "PUBLIC_LIMITED", label: "Public Limited" },
 ];
 
-function BusinessProfileSection({
-  form,
-  errors,
-  onChange,
-  onBlur,
-  disabled,
-}) {
+function BusinessProfileSection({ form, errors, onChange, onBlur, disabled, }) {
   return (
     <SectionCard
       title="Business & Owner Profile"
-      description="Provide the business and owner information used for credit evaluation."
-    >
+      description="Provide the business and owner information used for credit evaluation.">
+
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         <InputField
           label="Owner Name"

@@ -1,0 +1,30 @@
+# Virtual Environments
+venv/
+.venv/
+env/
+.env/
+
+# Node dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Build artifacts
+dist/
+build/
+
+.vscode/
+
+docs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.py
+
+# OS
+.DS_Store
+Thumbs.db
