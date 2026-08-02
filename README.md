@@ -12,6 +12,18 @@ The system is designed around clean architecture, explicit business rules, backe
 
 ---
 
+## Live Demo
+
+-  **Frontend:** <https://lending-decision-system-frontend-xi.vercel.app/>
+
+-  **Backend API:** <https://lending-decision-system-6j87.onrender.com>
+
+-  **Preview (Live):** <https://lending-decision-system-frontend-xi.vercel.app/>
+
+- The frontend is deployed on Vercel and the backend API is deployed on Render. The frontend communicates with the backend through the REST API.
+
+---
+
 ## 1. Project Overview
 
 ### Problem
